@@ -6,7 +6,6 @@
     <title>다산별빛초 뉴질랜드 체험 부스 2025: 파블로바 & 하카 프로젝트</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;500;700&display=swap" rel="stylesheet">
     <style>
-        /* (CSS 스타일 코드는 이전과 동일합니다. 생략합니다.) */
         /* 기본 스타일 및 초기화 (DJI 스타일: 미니멀 & 클린) */
         body {
             font-family: 'Noto Sans KR', sans-serif;
@@ -215,7 +214,7 @@
 
     <section id="hero">
         <h1>뉴질랜드 부스로 오세욧@@@</h1>
-        <p>다산별빛초 뉴질랜드 체험 부스 2025 ㅣ 김민석 머리 멋짐</p>
+        <p>다산별빛초 뉴질랜드 체험 부스 2025 | 김민석 머리가 삐까뻔쩍</p>
         <a href="#pavlova" class="cta-button">🌟 체험 시작하기</a>
     </section>
 
@@ -253,7 +252,7 @@
                         <li>'카 마테(Ka Mate)' 하카 영상 시청</li>
                         <li>팀원들과 함께 박력 있는 동작 연습</li>
                     </ul>
-                                        <a href="https://youtu.be/dDcHEdGSxh4?si=nWnUmQWOKlo7rWPE" target="_blank" class="cta-button" style="padding: 10px 25px; margin-top: 15px; display: inline-block;">하카 영상 보러가기</a>
+                    <a href="https://youtu.be/dDcHEdGSxh4?si=nWnUmQWOKlo7rWPE" target="_blank" class="cta-button" style="padding: 10px 25px; margin-top: 15px; display: inline-block;">하카 영상 보러가기</a>
                 </div>
             </div>
 
@@ -279,77 +278,88 @@
         </a>
     </footer>
 
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
     <script>
-        // 1. Firebase 구성 객체
-        const firebaseConfig = {
-            apiKey: "AIzaSyAew61mBPKk-dVVGe3R_Qbvvtf-S9xD8HY",
-            authDomain: "dsbbnewzealand.firebaseapp.com",
-            projectId: "dsbbnewzealand",
-            storageBucket: "dsbbnewzealand.firebasestorage.app",
-            messagingSenderId: "47157171815",
-            appId: "1:47157171815:web:67fb3402b0e5f2ebc0a6c2",
-            measurementId: "G-9DW1P50S90"
-        };
+        // 에러를 유발하는 로직이 페이지 로드에 영향을 주지 않도록 try-catch로 한번 더 감싸고,
+        // 함수 실행 시점을 늦춥니다.
+        document.addEventListener('DOMContentLoaded', () => {
+            try {
+                // 1. Firebase 구성 객체
+                const firebaseConfig = {
+                    apiKey: "AIzaSyAew61mBPKk-dVVGe3R_Qbvvtf-S9xD8HY",
+                    authDomain: "dsbbnewzealand.firebaseapp.com",
+                    projectId: "dsbbnewzealand",
+                    storageBucket: "dsbbnewzealand.firebasestorage.app",
+                    messagingSenderId: "47157171815",
+                    appId: "1:47157171815:web:67fb3402b0e5f2ebc0a6c2",
+                    measurementId: "G-9DW1P50S90"
+                };
 
-        // 2. Firebase 초기화
-        firebase.initializeApp(firebaseConfig);
-        const db = firebase.firestore();
+                // 2. Firebase 초기화
+                firebase.initializeApp(firebaseConfig);
+                const db = firebase.firestore();
 
-        // 3. 접속 정보 기록 함수
-        async function logVisitor() {
-            const userAgent = navigator.userAgent; // 기기명 (User Agent)
-            let ip = 'N/A';
-            let country = 'Unknown'; // 'N/A' 대신 'Unknown'으로 초기화
-            let isp = 'Unknown';
+                // 3. 접속 정보 기록 함수
+                async function logVisitor() {
+                    const userAgent = navigator.userAgent; // 기기명 (User Agent)
+                    let ip = 'N/A';
+                    let country = 'Unknown';
+                    let isp = 'Unknown';
 
-            try {
-                // 1단계: IP 주소 가져오기 (ipify 사용, HTTPS)
-                const ipResponse = await fetch('https://api.ipify.org?format=json');
-                const ipData = await ipResponse.json();
-                ip = ipData.ip;
-                
-                // 2단계: IP를 기반으로 지리 정보 (국가/ISP) 가져오기 (ip-api 사용, HTTPS 유지)
-                // fetch가 성공하더라도 API 내부적으로 오류(rate limit 등)가 있을 수 있어 응답을 확인합니다.
-                const geoResponse = await fetch(`https://ip-api.com/json/${ip}?fields=status,country,isp`);
-                const geoData = await geoResponse.json();
-                
-                // IP-API의 응답 상태(status)가 'success'일 때만 데이터를 사용합니다.
-                if (geoData.status === 'success') {
-                    country = geoData.country || 'Unknown';
-                    isp = geoData.isp || 'Unknown';
-                } else {
-                    console.warn("Geo-location lookup failed (ip-api returned status: " + geoData.status + ")");
+                    try {
+                        // 1단계: IP 주소 가져오기 (ipify 사용, HTTPS)
+                        const ipResponse = await fetch('https://api.ipify.org?format=json');
+                        const ipData = await ipResponse.json();
+                        ip = ipData.ip;
+                        
+                        // 2단계: IP를 기반으로 지리 정보 (국가/ISP) 가져오기 (ip-api 사용, HTTPS 유지 및 성공 여부 확인)
+                        const geoResponse = await fetch(`https://ip-api.com/json/${ip}?fields=status,country,isp`);
+                        const geoData = await geoResponse.json();
+                        
+                        // API 응답 상태 확인
+                        if (geoData.status === 'success') {
+                            country = geoData.country || 'Unknown';
+                            isp = geoData.isp || 'Unknown';
+                        } else {
+                            // API 호출은 성공했지만, 서비스 자체에서 오류를 반환한 경우 (예: Rate Limit)
+                            console.warn("Geo-location lookup failed (ip-api returned status: " + geoData.status + ")");
+                        }
+
+                    } catch (error) {
+                        // 네트워크 문제나 API 호출 자체가 실패한 경우
+                        console.error("IP or Geo-location fetch failed:", error);
+                    }
+
+                    // 4. Firestore에 데이터 추가
+                    const timestamp = firebase.firestore.FieldValue.serverTimestamp(); // 서버 시간 사용
+                    const logEntry = {
+                        timestamp: timestamp, // 년/월/일/시간/분/초
+                        device_info: userAgent, // 기기명 (User Agent)
+                        ip_address: ip, // IP 주소
+                        location_country: country, // 접속 국가
+                        isp_info: isp // ISP
+                    };
+
+                    // 'access_logs' 컬렉션에 로그 기록
+                    db.collection("access_logs").add(logEntry)
+                        .then(() => {
+                            // console.log("Visitor log successfully written!");
+                        })
+                        .catch((error) => {
+                            // Firestore 쓰기 오류 발생 시 (예: 보안 규칙 문제)
+                            console.error("Error writing document: ", error);
+                        });
                 }
 
-            } catch (error) {
-                // 네트워크 문제나 파싱 오류 발생 시
-                console.error("IP or Geo-location fetch failed:", error);
-            }
+                // 페이지 로드 후 로그 함수 실행
+                logVisitor();
 
-            // 4. Firestore에 데이터 추가
-            const timestamp = firebase.firestore.FieldValue.serverTimestamp(); // 서버 시간 사용
-            const logEntry = {
-                timestamp: timestamp, // 년/월/일/시간/분/초
-                device_info: userAgent, // 기기명 (User Agent)
-                ip_address: ip, // IP 주소
-                location_country: country, // 접속 국가
-                isp_info: isp // ISP
-            };
-
-            // 'access_logs' 컬렉션에 로그 기록
-            db.collection("access_logs").add(logEntry)
-                .then(() => {
-                    // console.log("Visitor log successfully written!");
-                })
-                .catch((error) => {
-                    console.error("Error writing document: ", error);
-                });
-        }
-
-        // 페이지 로드 시 로그 함수 실행
-        logVisitor();
+            } catch (initError) {
+                // Firebase 초기화나 스크립트 로드 자체에 심각한 오류가 발생한 경우
+                console.error("CRITICAL: Firebase initialization or main script failed.", initError);
+            }
+        });
     </script>
 </body>
 </html>
