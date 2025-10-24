@@ -3,166 +3,243 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🌟다산별빛초등학교 뉴질랜드 체험 부스 2025: 공식 웹사이트🇳🇿</title>
-    <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+    <title>다산별빛초 뉴질랜드 체험 부스 2025: 파블로바 & 하카 프로젝트</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;500;700&display=swap" rel="stylesheet">
     <style>
-        /* 기본 스타일 초기화 및 배경 */
+        /* 기본 스타일 및 초기화 (DJI 스타일: 미니멀 & 클린) */
         body {
             font-family: 'Noto Sans KR', sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 100%); /* 뉴질랜드 하늘색 그라데이션 */
-            color: #333;
+            background-color: #000000; /* 어두운 배경으로 콘텐츠 강조 */
+            color: #ffffff; /* 흰색 텍스트 */
             line-height: 1.6;
-            text-align: center;
+            scroll-behavior: smooth; /* 부드러운 스크롤 */
         }
 
-        /* 중앙 컨테이너 */
-        .container {
-            width: 90%;
-            max-width: 1000px;
-            margin: 40px auto;
-            padding: 20px 40px;
-            background-color: #ffffff;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* 더 입체적인 그림자 */
-            border: 5px solid #005662; /* 뉴질랜드 국기색 테두리 */
-        }
-
-        /* 헤더/제목 스타일 */
-        header {
-            border-bottom: 3px dashed #ffcc00; /* 황금빛 구분선 */
-            padding-bottom: 20px;
-            margin-bottom: 30px;
-        }
-
-        h1 {
-            color: #00838f; /* 짙은 청록색 */
-            font-family: 'Nanum Pen Script', cursive; /* 캘리그라피 느낌 */
-            font-size: 3.5em;
-            margin-bottom: 10px;
-            animation: pulse 2s infinite; /* 제목 애니메이션 */
-        }
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.03); }
-            100% { transform: scale(1); }
-        }
-
-        h2 {
-            color: #d84315; /* 마오리족 문양색 */
-            font-size: 2em;
-            margin-top: 40px;
-            border-left: 5px solid #ffcc00;
-            padding-left: 10px;
-            text-align: left;
-        }
-
-        /* 섹션 스타일 */
+        /* 공통 섹션 스타일 */
         .section {
-            padding: 20px 0;
-            text-align: left;
-        }
-
-        /* 부스 소개 리스트 - 사용하지 않더라도 스타일은 유지했습니다. */
-        .activity-list {
-            list-style: none;
-            padding: 0;
+            padding: 100px 0;
             text-align: center;
-        }
-        .activity-list li {
-            background-color: #f4fcfc;
-            margin: 10px 0;
-            padding: 15px;
-            border-radius: 8px;
-            border-left: 5px solid #00bcd4;
-            transition: transform 0.3s;
-            font-size: 1.1em;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-        }
-        .activity-list li:hover {
-            transform: translateX(10px);
-            background-color: #e0f7fa;
+            overflow: hidden;
+            position: relative;
         }
 
-        /* 경고/꿀팁 박스 */
-        .tip-box {
-            background-color: #fffde7;
-            border: 2px solid #ffeb3b;
-            padding: 20px;
-            margin-top: 30px;
-            border-radius: 10px;
-            text-align: center;
-            font-style: italic;
+        /* DJI 스타일 네비게이션 바 (상단 고정) */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.7); /* 투명한 어두운 배경 */
+            z-index: 1000;
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(5px); /* 배경 흐림 효과 */
         }
-        .tip-box strong {
-            color: #ffc107;
+        .navbar .logo {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: #ffffff;
+            text-decoration: none;
+            letter-spacing: 1px;
         }
-        
-        /* 푸터 */
-        footer {
-            margin-top: 50px;
-            padding-top: 20px;
-            border-top: 1px solid #ccc;
-            color: #999;
-            font-size: 0.9em;
+        .navbar a {
+            color: #cccccc;
+            text-decoration: none;
+            margin-left: 30px;
+            font-weight: 300; /* 얇은 폰트 */
+            transition: color 0.3s;
+        }
+        .navbar a:hover {
+            color: #00bcd4; /* 강조 색상 (뉴질랜드 국기색 청색 계열) */
         }
 
-        /* 홍박사 섹션 */
-        .hong-section {
-            margin-top: 40px;
-            padding: 20px;
-            background-color: #ffe0b2;
-            border-radius: 10px;
-            border: 3px dashed #ff9800;
+        /* 메인 히어로 섹션 (가장 중요) */
+        #hero {
+            height: 100vh;
+            background: url('placeholder_newzealand_landscape.jpg') no-repeat center center/cover; /* 실제 뉴질랜드 풍경 이미지로 대체하세요! */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+            position: relative;
         }
-        .hong-section p {
+        #hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3); /* 이미지 위에 어두운 오버레이 */
+            z-index: 1;
+        }
+        #hero * { z-index: 2; }
+
+        #hero h1 {
+            font-size: 4em;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: 5px;
+        }
+        #hero p {
+            font-size: 1.5em;
+            font-weight: 300;
+            margin-bottom: 40px;
+        }
+        .cta-button {
+            background-color: #00bcd4; /* 강조 버튼 */
+            color: #ffffff;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 5px;
             font-size: 1.2em;
-            font-weight: bold;
-            color: #e65100;
+            font-weight: 500;
+            transition: background-color 0.3s;
+            border: none;
+        }
+        .cta-button:hover {
+            background-color: #0097a7;
+        }
+
+        /* 체험 카드 섹션 (DJI 제품 소개처럼) */
+        .feature-card-container {
+            display: flex;
+            justify-content: space-around;
+            max-width: 1200px;
+            margin: 0 auto;
+            gap: 40px;
+            padding-top: 50px;
+        }
+        .feature-card {
+            background-color: #1a1a1a;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            width: 45%;
+            text-align: left;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+        }
+        .feature-card img {
+            width: 100%;
+            height: 300px; /* 체험 이미지 높이 고정 */
+            object-fit: cover;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+        .card-content {
+            padding: 30px;
+        }
+        .card-content h3 {
+            font-size: 2em;
+            margin-top: 0;
+            color: #00bcd4;
+        }
+        .card-content ul {
+            list-style: none;
+            padding-left: 0;
+            font-weight: 300;
+            margin-top: 20px;
+        }
+        .card-content li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 20px;
+        }
+        .card-content li::before {
+            content: '•';
+            color: #ffc107; /* 키위 골드 색상 */
+            font-weight: 700;
+            position: absolute;
+            left: 0;
+        }
+
+        /* 푸터 (깔끔하고 간결하게) */
+        footer {
+            padding: 30px 0;
+            border-top: 1px solid #333333;
+            font-size: 0.9em;
+            color: #999999;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>🎉🌟🌟🎉</h1>
-            <p>다산별빛초등학교 뉴질랜드 부스 만들기 2025에서 심심해서 만들어본 사이트!!! (Feat. 공식 확장판!) </p>
-        </header>
 
-        <section class="section">
-            <h2>🇳🇿 뉴질랜드 부스 소개: '여긴 뉴질랜드 시티'</h2>
-            <p>
-                안녕하세요! 저희는 2025년 다산별빛초등학교 축제에서 뉴질랜드의 X친 매력을 소개할 부스입니다.
-                심심해서 시작했지만, 이젠 하나도 안 진심으로 이 사이트에 초대합니다!
-            </p>
-        </section>
+    <nav class="navbar">
+        <a href="#hero" class="logo">🇳🇿 별빛 NZ 프로젝트</a>
+        <div>
+            <a href="#pavlova">파블로바</a>
+            <a href="#haka">하카 배우기</a>
+            <a href="#contact">팀 소개</a>
+        </div>
+    </nav>
 
-        <section class="section">
-            <h2>📜 웹사이트 작동 현황 (놀랍지 않을 수도 있지만...)</h2>
-            <p>
-                이 웹사이트는 여러분이 보고 계시는 것처럼 **정상적으로 작동 중**입니다!
-                처음에 심심풀이로 시작했던 HTML 코드가 이렇게 풍부하게 확장되었다는 사실... 정말 놀랍지 않나요? (안 놀랍죠? zz)
-                하지만 중요한 것은 이 코드가 완벽하게 브라우저에 표시되고 있다는 것입니다.
-            </p>
-            <div class="tip-box">
-                <strong>💡 웹마스터의 꿀팁:</strong> 사이트 만들생각하지마세요 겁나어렵고 돈도내야됨;;;;
+    <section id="hero">
+        <h1>UNLEASH YOUR KIWI ADVENTURE</h1>
+        <p>다산별빛초 뉴질랜드 체험 부스 2025 | 이제 심심해서 만든 게 아닙니다.</p>
+        <a href="#pavlova" class="cta-button">🌟 체험 시작하기</a>
+    </section>
+
+    <section id="features" class="section" style="background-color: #0a0a0a;">
+        <h2>EXPERIENCE NZ CULTURE. NOW.</h2>
+        <div class="feature-card-container">
+            
+            <div id="pavlova" class="feature-card">
+                <img src="placeholder_pavlova_image.jpg" alt="파블로바 만들기 체험 이미지">
+                <div class="card-content">
+                    <h3>1. 파블로바 프로젝트</h3>
+                    <p>
+                        호주와 뉴질랜드의 오랜 논쟁거리이자, 달콤함의 절정인 디저트 파블로바를 직접 만들고 시식합니다. 
+                        뉴질랜드 식문화의 정수를 맛보세요!
+                    </p>
+                    <ul>
+                        <li>파블로바의 역사와 유래 학습</li>
+                        <li>생크림, 팬케이크(머랭 대체용), 냉동과일 사용</li>
+                        <li>함께 만들고 즐기는 키위 스타일 디저트 타임</li>
+                    </ul>
+                    <a href="#" class="cta-button" style="padding: 10px 25px; margin-top: 15px; display: inline-block;">재료 및 순서 확인</a>
+                </div>
             </div>
-        </section>
 
-        <section class="hong-section">
-            <h2>👨‍🔬 홍박사의 메시지 (ft. 홍박사가 만든)</h2>
-            <p>
-                "안 놀랍죠? zz"라고 하셨지만, **홍박사**가 이 사이트의 코딩 확장 버전을 보더니 매우 흥@분했습니다!
-                <br>
-                📢 **홍박사 曰:** <em>"원래는 짧았지, 매우 짧았어! 하지만 이렇게 길고 풍부하게 확장될 줄이야!"</em>
-            </p>
-        </section>
+            <div id="haka" class="feature-card">
+                <img src="placeholder_haka_image.jpg" alt="하카 배우기 체험 이미지">
+                <div class="card-content">
+                    <h3>2. 마오리족 하카 배우기</h3>
+                    <p>
+                        뉴질랜드 마오리족의 전통 춤이자, 용맹한 전사의 의식인 '하카'를 직접 배워보는 시간입니다. 
+                        열정을 불태워 보세요!
+                    </p>
+                    <ul>
+                        <li>하카의 의미와 동작 설명 (키아 코아!)</li>
+                        <li>'카 마테(Ka Mate)' 하카 영상 시청</li>
+                        <li>팀원들과 함께 박력 있는 동작 연습</li>
+                    </ul>
+                    <a href="#" class="cta-button" style="padding: 10px 25px; margin-top: 15px; display: inline-block;">하카 영상 보러가기</a>
+                </div>
+            </div>
 
-        <footer>
-            <p>&copy; 2025 다산별빛초등학교 뉴질랜드 부스 웹 확장판 | 단순 재미용 사이트 </p>
-            <p>Developed by 심심해서 코딩한 </p>
-        </footer>
-    </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <h2>POWERED BY STARLIGHT KIWI TEAM</h2>
+        <p>우리 팀은 뉴질랜드 문화에 대한 이해와 재미를 공유하기 위해 이 부스를 기획했습니다.</p>
+        <p style="font-size: 1.1em; font-weight: 500;">
+            문의: 다산별빛초등학교 [부스 담당자명/팀명] 또는 <a href="mailto:example@dasanstar.edu" style="color: #00bcd4;">이메일 문의</a>
+        </p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 다산별빛초등학교 뉴질랜드 체험 부스 공식 웹사이트. All Rights Reserved.</p>
+        <p>Design inspired by DJI. Powered by Starlight Team & Gemini AI.</p>
+    </footer>
+
 </body>
 </html>
