@@ -11,20 +11,20 @@
             font-family: 'Noto Sans KR', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #000000; /* 어두운 배경으로 콘텐츠 강조 */
-            color: #ffffff; /* 흰색 텍스트 */
+            background-color: #000000;
+            color: #ffffff;
             line-height: 1.6;
-            scroll-behavior: smooth; /* 부드러운 스크롤 */
+            scroll-behavior: smooth;
         }
 
-        /* 공통 섹션 스타일 - 스크롤 효과를 위해 패딩을 조정하고 배경을 검은색으로 통일 */
+        /* 공통 섹션 스타일 */
         .section {
-            padding: 100px 50px; /* 좌우 패딩 추가 */
+            padding: 100px 50px;
             text-align: center;
             overflow: hidden;
             position: relative;
             background-color: #000000;
-            min-height: 50vh; /* 최소 높이 설정 */
+            min-height: 50vh;
         }
         
         /* DJI 스타일 네비게이션 바 (상단 고정) */
@@ -33,13 +33,13 @@
             top: 0;
             left: 0;
             width: 100%;
-            background-color: rgba(0, 0, 0, 0.7); /* 투명한 어두운 배경 */
+            background-color: rgba(0, 0, 0, 0.7);
             z-index: 1000;
             padding: 15px 50px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            backdrop-filter: blur(5px); /* 배경 흐림 효과 */
+            backdrop-filter: blur(5px);
         }
         .navbar .logo {
             font-size: 1.5em;
@@ -59,11 +59,10 @@
             color: #00bcd4;
         }
 
-        /* 메인 히어로 섹션 (전체 화면 차지) - 토스/DJI처럼 강렬한 시작 */
+        /* 메인 히어로 섹션 */
         #hero {
             height: 100vh;
             background: url('placeholder_newzealand_landscape.jpg') no-repeat center center/cover;
-            /* 다이내믹 스크롤 효과: 배경 이미지 고정 */
             background-attachment: fixed; 
             display: flex;
             flex-direction: column;
@@ -95,6 +94,7 @@
             font-weight: 300;
             margin-bottom: 40px;
         }
+        /* CTA 버튼 스타일 */
         .cta-button {
             background-color: #00bcd4;
             color: #ffffff;
@@ -105,12 +105,29 @@
             font-weight: 500;
             transition: background-color 0.3s;
             border: none;
+            display: inline-block; /* 버튼 크기 적용을 위해 추가 */
         }
         .cta-button:hover {
             background-color: #0097a7;
         }
+        /* 이스터에그 버튼 스타일 (cta-button과 동일한 크기와 모양) */
+        .easter-egg-button {
+            background-color: #ffc107; /* 강조를 위해 다른 색상 사용 */
+            color: #000000;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            font-weight: 700; /* 더 진하게 */
+            transition: background-color 0.3s;
+            border: none;
+            margin-left: 20px; /* 저작권 설명과 간격 */
+        }
+        .easter-egg-button:hover {
+            background-color: #ffa000;
+        }
 
-        /* 체험 카드 섹션 (DJI 제품 소개처럼) */
+        /* 체험 카드 섹션 */
         .feature-card-container {
             display: flex;
             justify-content: space-around;
@@ -171,27 +188,19 @@
             border-top: 1px solid #333333;
             font-size: 0.9em;
             color: #999999;
-            background-color: #000000; /* 푸터 배경도 검은색으로 유지 */
+            background-color: #000000;
+            /* 푸터 내부 컨텐츠를 중앙 정렬이 아닌 왼쪽 정렬로 변경하여 버튼을 깔끔하게 배치 */
+            text-align: left; 
+            padding-left: 50px; /* 섹션과 동일하게 왼쪽 패딩 적용 */
+            display: flex; /* 버튼 배치를 위해 flex 사용 */
+            justify-content: space-between; /* 양쪽 끝으로 밀어내기 */
+            align-items: center; /* 수직 중앙 정렬 */
         }
-        
-        /* 이스터 에그 스타일 (숨겨진 섹션) */
-        #easter-egg {
-            background-color: #ffe0b2; /* 눈에 띄게 다른 색상 */
-            color: #333;
-            padding: 100px 50px;
-            text-align: center;
-            border-top: 5px solid #ff9800;
+        /* 푸터 텍스트 컨테이너 */
+        .footer-text {
+            line-height: 1.8;
         }
-        #easter-egg h2 {
-            font-size: 2.5em;
-            color: #e65100;
-            margin-bottom: 20px;
-        }
-        #easter-egg p {
-            font-size: 1.2em;
-            font-weight: 500;
-            color: #666;
-        }
+
     </style>
 </head>
 <body>
@@ -212,15 +221,15 @@
     </section>
 
     <section id="features" class="section">
-        <h2>EXPERIENCE NZ CULTURE. NOW.</h2>
+        <h2>활동 목록</h2>
         <div class="feature-card-container">
             
             <div id="pavlova" class="feature-card">
                 <img src="placeholder_pavlova_image.jpg" alt="파블로바 만들기 체험 이미지">
                 <div class="card-content">
-                    <h3>1. 파블로바 프로젝트</h3>
+                    <h3>1. 파블로바 만들고 시식하기!</h3>
                     <p>
-                        호주와 뉴질랜드의 오랜 논쟁거리이자, 달콤함의 절정인 디저트 파블로바를 직접 만들고 시식합니다. 
+                        뉴질랜드의 오랜 달콤함의 절정인 디저트 파블로바를 직접 만들고 시식합니다. 
                         뉴질랜드 식문화의 정수를 맛보세요!
                     </p>
                     <ul>
@@ -254,22 +263,21 @@
 
     <section id="contact" class="section">
         <h2>POWERED BY 홍박ㅅr</h2>
-        <p>우리 팀은 뉴질랜드 문화에 대한 이해와 재미를 공유하기 위해 이 부스를 기획했습니다.</p>
+        <p>우리 팀은 이름 쓰고싶지만 개인정보 보호법에 따라서 허락안받아서 못써요.</p>
         <p style="font-size: 1.1em; font-weight: 500;">
             문의: 다산별빛초 뉴질랜드 부스 담당자명: 홍박사 / 팀명: 뉴@질랜드 <br>
             이메일: <a href="mailto:gs25q@naver.com" style="color: #00bcd4;">gs25q@naver.com</a>
         </p>
     </section>
     
-    <section id="easter-egg">
-        <h2>축하합니다!</h2>
-        <p>당신은 이스터 에그를 발견하였습니다!!!</p>
-        <p>이스터 에그 보상은 스케입니다. 홍박사한테 이스터 코드 10987128 말하세요.(선착순 2명이며 조기마감시 코드를 사용할수없으며 미리 상품및 이스터 에그 내용 변경 고지를 사전에 하지 않아도 추후 변경될수도있음을 알려드립니다. 현장에서 참여자들만 사용할수있습니다.)</p>
-    </section>
-
     <footer>
-        <p>&copy; 2025 다산별빛초등학교 뉴질랜드 체험 부스 공식 웹사이트. All Rights Reserved.</p>
-        <p>Design inspired by 홍박사. Powered by Starlight Team, 문법 교정: 제미나이 2.5 플래시 AI, https 인증서 발급된 안전한 사이트입니다.</p>
+        <div class="footer-text">
+            <p>&copy; 2025 다산별빛초등학교 뉴질랜드 체험 부스 공식 웹사이트. All Rights Reserved.</p>
+            <p>Design inspired by 홍박사. Powered by Starlight Team, 문법 교정: 제미나이 2.5 플래시 AI, https 인증서 발급된 안전한 사이트입니다.</p>
+        </div>
+        <a href="http://dsbbnewzealand.kro.kr/easteregg" target="_blank" class="easter-egg-button">
+            ?
+        </a>
     </footer>
 
 </body>
