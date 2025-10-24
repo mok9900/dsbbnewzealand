@@ -6,13 +6,13 @@
     <title>다산별빛초 뉴질랜드 체험 부스 2025: 파블로바 & 하카 프로젝트</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;500;700&display=swap" rel="stylesheet">
     <style>
-        /* 기본 스타일 및 초기화 (DJI 스타일: 미니멀 & 클린) */
+        /* 기본 스타일 */
         body {
             font-family: 'Noto Sans KR', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #000000;
-            color: #ffffff;
+            background-color: #000000; /* 배경색: 검정 */
+            color: #ffffff; /* 기본 글씨색: 흰색 */
             line-height: 1.6;
             scroll-behavior: smooth;
         }
@@ -27,7 +27,7 @@
             min-height: 50vh;
         }
         
-        /* DJI 스타일 네비게이션 바 (상단 고정) */
+        /* 네비게이션 바 (상단 고정) */
         .navbar {
             position: fixed;
             top: 0;
@@ -105,23 +105,23 @@
             font-weight: 500;
             transition: background-color 0.3s;
             border: none;
-            display: inline-block; /* 버튼 크기 적용을 위해 추가 */
+            display: inline-block;
         }
         .cta-button:hover {
             background-color: #0097a7;
         }
-        /* 이스터에그 버튼 스타일 (cta-button과 동일한 크기와 모양) */
+        /* 이스터에그 버튼 스타일 */
         .easter-egg-button {
-            background-color: #ffc107; /* 강조를 위해 다른 색상 사용 */
+            background-color: #ffc107;
             color: #000000;
             padding: 15px 40px;
             text-decoration: none;
             border-radius: 5px;
             font-size: 1.2em;
-            font-weight: 700; /* 더 진하게 */
+            font-weight: 700;
             transition: background-color 0.3s;
             border: none;
-            margin-left: 20px; /* 저작권 설명과 간격 */
+            margin-left: 20px;
         }
         .easter-egg-button:hover {
             background-color: #ffa000;
@@ -182,7 +182,7 @@
             left: 0;
         }
 
-        /* 푸터 (깔끔하고 간결하게) */
+        /* 푸터 */
         footer {
             padding: 30px 0;
             border-top: 1px solid #333333;
@@ -281,8 +281,7 @@
         <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
     <script>
-        // 에러를 유발하는 로직이 페이지 로드에 영향을 주지 않도록 try-catch로 한번 더 감싸고,
-        // 함수 실행 시점을 늦춥니다.
+        // 페이지의 모든 HTML 요소가 로드된 후 스크립트 실행
         document.addEventListener('DOMContentLoaded', () => {
             try {
                 // 1. Firebase 구성 객체
@@ -297,12 +296,13 @@
                 };
 
                 // 2. Firebase 초기화
+                // SDK 로딩 에러 방지를 위해 초기화 코드를 try-catch로 감쌉니다.
                 firebase.initializeApp(firebaseConfig);
                 const db = firebase.firestore();
 
-                // 3. 접속 정보 기록 함수
+                // 3. 접속 정보 기록 함수 (IP, ISP, 국가 정보를 안전하게 가져옴)
                 async function logVisitor() {
-                    const userAgent = navigator.userAgent; // 기기명 (User Agent)
+                    const userAgent = navigator.userAgent;
                     let ip = 'N/A';
                     let country = 'Unknown';
                     let isp = 'Unknown';
@@ -313,41 +313,34 @@
                         const ipData = await ipResponse.json();
                         ip = ipData.ip;
                         
-                        // 2단계: IP를 기반으로 지리 정보 (국가/ISP) 가져오기 (ip-api 사용, HTTPS 유지 및 성공 여부 확인)
+                        // 2단계: IP를 기반으로 지리 정보 가져오기 (ip-api 사용, HTTPS)
                         const geoResponse = await fetch(`https://ip-api.com/json/${ip}?fields=status,country,isp`);
                         const geoData = await geoResponse.json();
                         
-                        // API 응답 상태 확인
+                        // API 응답 상태가 'success'일 때만 데이터를 사용
                         if (geoData.status === 'success') {
                             country = geoData.country || 'Unknown';
                             isp = geoData.isp || 'Unknown';
                         } else {
-                            // API 호출은 성공했지만, 서비스 자체에서 오류를 반환한 경우 (예: Rate Limit)
-                            console.warn("Geo-location lookup failed (ip-api returned status: " + geoData.status + ")");
+                            console.warn("Geo-location lookup failed (ip-api returned status: " + geoData.status + ") - Rate Limit 등 확인 필요");
                         }
 
                     } catch (error) {
-                        // 네트워크 문제나 API 호출 자체가 실패한 경우
                         console.error("IP or Geo-location fetch failed:", error);
                     }
 
                     // 4. Firestore에 데이터 추가
-                    const timestamp = firebase.firestore.FieldValue.serverTimestamp(); // 서버 시간 사용
+                    const timestamp = firebase.firestore.FieldValue.serverTimestamp();
                     const logEntry = {
-                        timestamp: timestamp, // 년/월/일/시간/분/초
-                        device_info: userAgent, // 기기명 (User Agent)
-                        ip_address: ip, // IP 주소
-                        location_country: country, // 접속 국가
-                        isp_info: isp // ISP
+                        timestamp: timestamp,
+                        device_info: userAgent,
+                        ip_address: ip,
+                        location_country: country,
+                        isp_info: isp
                     };
 
-                    // 'access_logs' 컬렉션에 로그 기록
                     db.collection("access_logs").add(logEntry)
-                        .then(() => {
-                            // console.log("Visitor log successfully written!");
-                        })
                         .catch((error) => {
-                            // Firestore 쓰기 오류 발생 시 (예: 보안 규칙 문제)
                             console.error("Error writing document: ", error);
                         });
                 }
@@ -356,8 +349,8 @@
                 logVisitor();
 
             } catch (initError) {
-                // Firebase 초기화나 스크립트 로드 자체에 심각한 오류가 발생한 경우
-                console.error("CRITICAL: Firebase initialization or main script failed.", initError);
+                // Firebase 초기화 실패 시 (페이지 표시에는 영향 없음)
+                console.error("Firebase initialization failed, logging disabled.", initError);
             }
         });
     </script>
