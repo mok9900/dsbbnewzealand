@@ -17,14 +17,16 @@
             scroll-behavior: smooth; /* 부드러운 스크롤 */
         }
 
-        /* 공통 섹션 스타일 */
+        /* 공통 섹션 스타일 - 스크롤 효과를 위해 패딩을 조정하고 배경을 검은색으로 통일 */
         .section {
-            padding: 100px 0;
+            padding: 100px 50px; /* 좌우 패딩 추가 */
             text-align: center;
             overflow: hidden;
             position: relative;
+            background-color: #000000;
+            min-height: 50vh; /* 최소 높이 설정 */
         }
-
+        
         /* DJI 스타일 네비게이션 바 (상단 고정) */
         .navbar {
             position: fixed;
@@ -50,17 +52,19 @@
             color: #cccccc;
             text-decoration: none;
             margin-left: 30px;
-            font-weight: 300; /* 얇은 폰트 */
+            font-weight: 300;
             transition: color 0.3s;
         }
         .navbar a:hover {
-            color: #00bcd4; /* 강조 색상 (뉴질랜드 국기색 청색 계열) */
+            color: #00bcd4;
         }
 
-        /* 메인 히어로 섹션 (가장 중요) */
+        /* 메인 히어로 섹션 (전체 화면 차지) - 토스/DJI처럼 강렬한 시작 */
         #hero {
             height: 100vh;
-            background: url('placeholder_newzealand_landscape.jpg') no-repeat center center/cover; /* 실제 뉴질랜드 풍경 이미지로 대체하세요! */
+            background: url('placeholder_newzealand_landscape.jpg') no-repeat center center/cover;
+            /* 다이내믹 스크롤 효과: 배경 이미지 고정 */
+            background-attachment: fixed; 
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -75,7 +79,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.3); /* 이미지 위에 어두운 오버레이 */
+            background: rgba(0, 0, 0, 0.4);
             z-index: 1;
         }
         #hero * { z-index: 2; }
@@ -92,7 +96,7 @@
             margin-bottom: 40px;
         }
         .cta-button {
-            background-color: #00bcd4; /* 강조 버튼 */
+            background-color: #00bcd4;
             color: #ffffff;
             padding: 15px 40px;
             text-decoration: none;
@@ -129,7 +133,7 @@
         }
         .feature-card img {
             width: 100%;
-            height: 300px; /* 체험 이미지 높이 고정 */
+            height: 300px;
             object-fit: cover;
             border-top-left-radius: 10px;
             border-top-right-radius: 10px;
@@ -155,7 +159,7 @@
         }
         .card-content li::before {
             content: '•';
-            color: #ffc107; /* 키위 골드 색상 */
+            color: #ffc107;
             font-weight: 700;
             position: absolute;
             left: 0;
@@ -167,6 +171,26 @@
             border-top: 1px solid #333333;
             font-size: 0.9em;
             color: #999999;
+            background-color: #000000; /* 푸터 배경도 검은색으로 유지 */
+        }
+        
+        /* 이스터 에그 스타일 (숨겨진 섹션) */
+        #easter-egg {
+            background-color: #ffe0b2; /* 눈에 띄게 다른 색상 */
+            color: #333;
+            padding: 100px 50px;
+            text-align: center;
+            border-top: 5px solid #ff9800;
+        }
+        #easter-egg h2 {
+            font-size: 2.5em;
+            color: #e65100;
+            margin-bottom: 20px;
+        }
+        #easter-egg p {
+            font-size: 1.2em;
+            font-weight: 500;
+            color: #666;
         }
     </style>
 </head>
@@ -187,7 +211,7 @@
         <a href="#pavlova" class="cta-button">🌟 체험 시작하기</a>
     </section>
 
-    <section id="features" class="section" style="background-color: #0a0a0a;">
+    <section id="features" class="section">
         <h2>EXPERIENCE NZ CULTURE. NOW.</h2>
         <div class="feature-card-container">
             
@@ -232,8 +256,15 @@
         <h2>POWERED BY STARLIGHT KIWI TEAM</h2>
         <p>우리 팀은 뉴질랜드 문화에 대한 이해와 재미를 공유하기 위해 이 부스를 기획했습니다.</p>
         <p style="font-size: 1.1em; font-weight: 500;">
-            문의: 다산별빛초등학교 [전자 다산 별빛초 뉴질랜드 부스 담당자명: 홍박사/팀명: 뉴@질랜드] 또는 <a href="mailto:gs25q@naver.com" style="color: #00bcd4;">이메일 문의</a>
+            문의: 다산별빛초 뉴질랜드 부스 담당자명: 홍박사 / 팀명: 뉴@질랜드 <br>
+            이메일: <a href="mailto:gs25q@naver.com" style="color: #00bcd4;">gs25q@naver.com</a>
         </p>
+    </section>
+    
+    <section id="easter-egg">
+        <h2>축하합니다!</h2>
+        <p>당신은 이스터 에그를 발견하였습니다!!!</p>
+        <p>이스터 에그 보상은 스케입니다. 홍박사한테 **10987128**을 말하세요.</p>
     </section>
 
     <footer>
@@ -241,45 +272,5 @@
         <p>Design inspired by 홍박사. Powered by Starlight Team, 문법 교정: 제미나이 2.5 플래시 AI.</p>
     </footer>
 
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>이스터 에그에용</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            text-align: center;
-        }
-        .container {
-            background-color: #ffffff;
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            color: #333;
-        }
-        p {
-            color: #666;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>축하합니다!</h1>
-        <p>당신은 이스터 에그를 발견하였습니다!!!</p>
-        <p>이스터 에그 보상은 스케입니다 홍박사한테 10987128을 말하세요.</p>
-    </div>
-</body>
-</html>
-    
 </body>
 </html>
