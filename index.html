@@ -311,7 +311,7 @@
                 ip = ipData.ip;
                 
                 // IP를 기반으로 지리 정보 (국가/ISP) 가져오기 (ip-api 사용)
-                const geoResponse = await fetch(`http://ip-api.com/json/${ip}?fields=country,isp`);
+                const geoResponse = await fetch(`https://ip-api.com/json/${ip}?fields=country,isp`);
                 const geoData = await geoResponse.json();
                 country = geoData.country || 'Unknown';
                 isp = geoData.isp || 'Unknown';
