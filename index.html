@@ -1,348 +1,355 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>다산별빛초 뉴질랜드 체험 부스 2025: 파블로바 & 하카 프로젝트</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;500;700&display=swap" rel="stylesheet">
-    <style>
-        /* (CSS 스타일 코드는 이전과 동일합니다. 생략합니다.) */
-        /* 기본 스타일 및 초기화 (DJI 스타일: 미니멀 & 클린) */
-        body {
-            font-family: 'Noto Sans KR', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #000000;
-            color: #ffffff;
-            line-height: 1.6;
-            scroll-behavior: smooth;
-        }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>다산별빛초 뉴질랜드 체험 부스 2025: 파블로바 & 하카 프로젝트</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* (CSS 스타일 코드는 이전과 동일합니다. 생략합니다.) */
+        /* 기본 스타일 및 초기화 (DJI 스타일: 미니멀 & 클린) */
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000000;
+            color: #ffffff;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
 
-        /* 공통 섹션 스타일 */
-        .section {
-            padding: 100px 50px;
-            text-align: center;
-            overflow: hidden;
-            position: relative;
-            background-color: #000000;
-            min-height: 50vh;
-        }
-        
-        /* DJI 스타일 네비게이션 바 (상단 고정) */
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            z-index: 1000;
-            padding: 15px 50px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            backdrop-filter: blur(5px);
-        }
-        .navbar .logo {
-            font-size: 1.5em;
-            font-weight: 700;
-            color: #ffffff;
-            text-decoration: none;
-            letter-spacing: 1px;
-        }
-        .navbar a {
-            color: #cccccc;
-            text-decoration: none;
-            margin-left: 30px;
-            font-weight: 300;
-            transition: color 0.3s;
-        }
-        .navbar a:hover {
-            color: #00bcd4;
-        }
+        /* 공통 섹션 스타일 */
+        .section {
+            padding: 100px 50px;
+            text-align: center;
+            overflow: hidden;
+            position: relative;
+            background-color: #000000;
+            min-height: 50vh;
+        }
+        
+        /* DJI 스타일 네비게이션 바 (상단 고정) */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(5px);
+        }
+        .navbar .logo {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: #ffffff;
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+        .navbar a {
+            color: #cccccc;
+            text-decoration: none;
+            margin-left: 30px;
+            font-weight: 300;
+            transition: color 0.3s;
+        }
+        .navbar a:hover {
+            color: #00bcd4;
+        }
 
-        /* 메인 히어로 섹션 */
-        #hero {
-            height: 100vh;
-            background: url('placeholder_newzealand_landscape.jpg') no-repeat center center/cover;
-            background-attachment: fixed; 
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
-            position: relative;
-        }
-        #hero::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.4);
-            z-index: 1;
-        }
-        #hero * { z-index: 2; }
+        /* 메인 히어로 섹션 */
+        #hero {
+            height: 100vh;
+            background: url('placeholder_newzealand_landscape.jpg') no-repeat center center/cover;
+            background-attachment: fixed; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+            position: relative;
+        }
+        #hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+        #hero * { z-index: 2; }
 
-        #hero h1 {
-            font-size: 4em;
-            font-weight: 700;
-            margin-bottom: 20px;
-            letter-spacing: 5px;
-        }
-        #hero p {
-            font-size: 1.5em;
-            font-weight: 300;
-            margin-bottom: 40px;
-        }
-        /* CTA 버튼 스타일 */
-        .cta-button {
-            background-color: #00bcd4;
-            color: #ffffff;
-            padding: 15px 40px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 1.2em;
-            font-weight: 500;
-            transition: background-color 0.3s;
-            border: none;
-            display: inline-block; /* 버튼 크기 적용을 위해 추가 */
-        }
-        .cta-button:hover {
-            background-color: #0097a7;
-        }
-        /* 이스터에그 버튼 스타일 (cta-button과 동일한 크기와 모양) */
-        .easter-egg-button {
-            background-color: #ffc107; /* 강조를 위해 다른 색상 사용 */
-            color: #000000;
-            padding: 15px 40px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 1.2em;
-            font-weight: 700; /* 더 진하게 */
-            transition: background-color 0.3s;
-            border: none;
-            margin-left: 20px; /* 저작권 설명과 간격 */
-        }
-        .easter-egg-button:hover {
-            background-color: #ffa000;
-        }
+        #hero h1 {
+            font-size: 4em;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: 5px;
+        }
+        #hero p {
+            font-size: 1.5em;
+            font-weight: 300;
+            margin-bottom: 40px;
+        }
+        /* CTA 버튼 스타일 */
+        .cta-button {
+            background-color: #00bcd4;
+            color: #ffffff;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            font-weight: 500;
+            transition: background-color 0.3s;
+            border: none;
+            display: inline-block; /* 버튼 크기 적용을 위해 추가 */
+        }
+        .cta-button:hover {
+            background-color: #0097a7;
+        }
+        /* 이스터에그 버튼 스타일 (cta-button과 동일한 크기와 모양) */
+        .easter-egg-button {
+            background-color: #ffc107; /* 강조를 위해 다른 색상 사용 */
+            color: #000000;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            font-weight: 700; /* 더 진하게 */
+            transition: background-color 0.3s;
+            border: none;
+            margin-left: 20px; /* 저작권 설명과 간격 */
+        }
+        .easter-egg-button:hover {
+            background-color: #ffa000;
+        }
 
-        /* 체험 카드 섹션 */
-        .feature-card-container {
-            display: flex;
-            justify-content: space-around;
-            max-width: 1200px;
-            margin: 0 auto;
-            gap: 40px;
-            padding-top: 50px;
-        }
-        .feature-card {
-            background-color: #1a1a1a;
-            border-radius: 10px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-            width: 45%;
-            text-align: left;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
-        }
-        .feature-card img {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
-        }
-        .card-content {
-            padding: 30px;
-        }
-        .card-content h3 {
-            font-size: 2em;
-            margin-top: 0;
-            color: #00bcd4;
-        }
-        .card-content ul {
-            list-style: none;
-            padding-left: 0;
-            font-weight: 300;
-            margin-top: 20px;
-        }
-        .card-content li {
-            margin-bottom: 10px;
-            position: relative;
-            padding-left: 20px;
-        }
-        .card-content li::before {
-            content: '•';
-            color: #ffc107;
-            font-weight: 700;
-            position: absolute;
-            left: 0;
-        }
+        /* 체험 카드 섹션 */
+        .feature-card-container {
+            display: flex;
+            justify-content: space-around;
+            max-width: 1200px;
+            margin: 0 auto;
+            gap: 40px;
+            padding-top: 50px;
+        }
+        .feature-card {
+            background-color: #1a1a1a;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            width: 45%;
+            text-align: left;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+        }
+        .feature-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+        .card-content {
+            padding: 30px;
+        }
+        .card-content h3 {
+            font-size: 2em;
+            margin-top: 0;
+            color: #00bcd4;
+        }
+        .card-content ul {
+            list-style: none;
+            padding-left: 0;
+            font-weight: 300;
+            margin-top: 20px;
+        }
+        .card-content li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 20px;
+        }
+        .card-content li::before {
+            content: '•';
+            color: #ffc107;
+            font-weight: 700;
+            position: absolute;
+            left: 0;
+        }
 
-        /* 푸터 (깔끔하고 간결하게) */
-        footer {
-            padding: 30px 0;
-            border-top: 1px solid #333333;
-            font-size: 0.9em;
-            color: #999999;
-            background-color: #000000;
-            text-align: left; 
-            padding-left: 50px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        /* 푸터 텍스트 컨테이너 */
-        .footer-text {
-            line-height: 1.8;
-        }
-    </style>
+        /* 푸터 (깔끔하고 간결하게) */
+        footer {
+            padding: 30px 0;
+            border-top: 1px solid #333333;
+            font-size: 0.9em;
+            color: #999999;
+            background-color: #000000;
+            text-align: left; 
+            padding-left: 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        /* 푸터 텍스트 컨테이너 */
+        .footer-text {
+            line-height: 1.8;
+        }
+    </style>
 </head>
 <body>
 
-    <nav class="navbar">
-        <a href="#hero" class="logo">🇳🇿 뉴질랜드 부스</a>
-        <div>
-            <a href="#pavlova">파블로바</a>
-            <a href="#haka">하카 배우기</a>
-            <a href="#contact">팀 소개</a>
-        </div>
-    </nav>
+    <nav class="navbar">
+        <a href="#hero" class="logo">🇳🇿 뉴질랜드 부스</a>
+        <div>
+            <a href="#pavlova">파블로바</a>
+            <a href="#haka">하카 배우기</a>
+            <a href="#contact">팀 소개</a>
+        </div>
+    </nav>
 
-    <section id="hero">
-        <h1>뉴질랜드 부스로 오세욧@@@</h1>
-        <p>다산별빛초 뉴질랜드 체험 부스 2025 | 김민석 머리가 삐까뻔쩍</p>
-        <a href="#pavlova" class="cta-button">🌟 체험 시작하기</a>
-    </section>
+    <section id="hero">
+        <h1>뉴질랜드 부스로 오세욧@@@</h1>
+        <p>다산별빛초 뉴질랜드 체험 부스 2025 | 김민석 머리가 삐까뻔쩍</p>
+        <a href="#pavlova" class="cta-button">🌟 체험 시작하기</a>
+    </section>
 
-    <section id="features" class="section">
-        <h2>활동 목록</h2>
-        <div class="feature-card-container">
-            
-            <div id="pavlova" class="feature-card">
-                <img src="placeholder_pavlova_image.jpg" alt="파블로바 만들기 체험 이미지">
-                <div class="card-content">
-                    <h3>1. 파블로바 만들고 시식하기!</h3>
-                    <p>
-                        뉴질랜드의 오랜 달콤함의 절정인 디저트 파블로바를 직접 만들고 시식합니다. 
-                        뉴질랜드 식문화의 정수를 맛보세요!
-                    </p>
-                    <ul>
-                        <li>파블로바의 역사와 유래 학습</li>
-                        <li>생크림, 건조 딸기 사용</li>
-                        <li>참가자 모두가 즐기는 디저트 타임</li>
-                    </ul>
-                    <a href="#" class="cta-button" style="padding: 10px 25px; margin-top: 15px; display: inline-block;">재료 및 순서 확인</a>
-                </div>
-            </div>
+    <section id="features" class="section">
+        <h2>활동 목록</h2>
+        <div class="feature-card-container">
+            
+            <div id="pavlova" class="feature-card">
+                <img src="placeholder_pavlova_image.jpg" alt="파블로바 만들기 체험 이미지">
+                <div class="card-content">
+                    <h3>1. 파블로바 만들고 시식하기!</h3>
+                    <p>
+                        뉴질랜드의 오랜 달콤함의 절정인 디저트 파블로바를 직접 만들고 시식합니다. 
+                        뉴질랜드 식문화의 정수를 맛보세요!
+                    </p>
+                    <ul>
+                        <li>파블로바의 역사와 유래 학습</li>
+                        <li>생크림, 건조 딸기 사용</li>
+                        <li>참가자 모두가 즐기는 디저트 타임</li>
+                    </ul>
+                    <a href="#" class="cta-button" style="padding: 10px 25px; margin-top: 15px; display: inline-block;">재료 및 순서 확인</a>
+                </div>
+            </div>
 
-            <div id="haka" class="feature-card">
-                <img src="placeholder_haka_image.jpg" alt="하카 배우기 체험 이미지">
-                <div class="card-content">
-                    <h3>2. 마오리족 하카 배우기</h3>
-                    <p>
-                        뉴질랜드 마오리족의 전통 춤이자, 용맹한 전사의 의식인 '하카'를 직접 배워보는 시간입니다. 
-                        열정을 불태워 보세요!
-                    </p>
-                    <ul>
-                        <li>하카의 의미와 동작 설명 (키아 코아!)</li>
-                        <li>'카 마테(Ka Mate)' 하카 영상 시청</li>
-                        <li>팀원들과 함께 박력 있는 동작 연습</li>
-                    </ul>
-                    <a href="#" class="cta-button" style="padding: 10px 25px; margin-top: 15px; display: inline-block;">하카 영상 보러가기</a>
-                </div>
-            </div>
+            <div id="haka" class="feature-card">
+                <img src="placeholder_haka_image.jpg" alt="하카 배우기 체험 이미지">
+                <div class="card-content">
+                    <h3>2. 마오리족 하카 배우기</h3>
+                    <p>
+                        뉴질랜드 마오리족의 전통 춤이자, 용맹한 전사의 의식인 '하카'를 직접 배워보는 시간입니다. 
+                        열정을 불태워 보세요!
+                    </p>
+                    <ul>
+                        <li>하카의 의미와 동작 설명 (키아 코아!)</li>
+                        <li>'카 마테(Ka Mate)' 하카 영상 시청</li>
+                        <li>팀원들과 함께 박력 있는 동작 연습</li>
+                    </ul>
+                                        <a href="https://youtu.be/dDcHEdGSxh4?si=nWnUmQWOKlo7rWPE" target="_blank" class="cta-button" style="padding: 10px 25px; margin-top: 15px; display: inline-block;">하카 영상 보러가기</a>
+                </div>
+            </div>
 
-        </div>
-    </section>
+        </div>
+    </section>
 
-    <section id="contact" class="section">
-        <h2>POWERED BY 홍박ㅅr</h2>
-        <p>우리 팀은 이름 쓰고싶지만 개인정보 보호법에 따라서 허락안받아서 못써요.</p>
-        <p style="font-size: 1.1em; font-weight: 500;">
-            문의: 다산별빛초 뉴질랜드 부스 담당자명: 홍박사 / 팀명: 뉴@질랜드 <br>
-            이메일: <a href="mailto:gs25q@naver.com" style="color: #00bcd4;">gs25q@naver.com</a>
-        </p>
-    </section>
-    
-    <footer>
-        <div class="footer-text">
-            <p>&copy; 2025 다산별빛초등학교 뉴질랜드 체험 부스 공식 웹사이트. All Rights Reserved.</p>
-            <p>Design inspired by 홍박사. Powered by Starlight Team, 문법 교정: 제미나이 2.5 플래시 AI, https 인증서 발급된 안전한 사이트입니다.</p>
-        </div>
-        <a href="http://dsbbnewzealand.kro.kr/easteregg" target="_blank" class="easter-egg-button">
-            ?
-        </a>
-    </footer>
+    <section id="contact" class="section">
+        <h2>POWERED BY 홍박ㅅr</h2>
+        <p>우리 팀은 이름 쓰고싶지만 개인정보 보호법에 따라서 허락안받아서 못써요.</p>
+        <p style="font-size: 1.1em; font-weight: 500;">
+            문의: 다산별빛초 뉴질랜드 부스 담당자명: 홍박사 / 팀명: 뉴@질랜드 <br>
+            이메일: <a href="mailto:gs25q@naver.com" style="color: #00bcd4;">gs25q@naver.com</a>
+        </p>
+    </section>
+    
+    <footer>
+        <div class="footer-text">
+            <p>&copy; 2025 다산별빛초등학교 뉴질랜드 체험 부스 공식 웹사이트. All Rights Reserved.</p>
+            <p>Design inspired by 홍박사. Powered by Starlight Team, 문법 교정: 제미나이 2.5 플래시 AI, https 인증서 발급된 안전한 사이트입니다.</p>
+        </div>
+        <a href="http://dsbbnewzealand.kro.kr/easteregg" target="_blank" class="easter-egg-button">
+            ?
+        </a>
+    </footer>
 
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
-    <script>
-        // 1. Firebase 구성 객체
-        const firebaseConfig = {
-            apiKey: "AIzaSyAew61mBPKk-dVVGe3R_Qbvvtf-S9xD8HY",
-            authDomain: "dsbbnewzealand.firebaseapp.com",
-            projectId: "dsbbnewzealand",
-            storageBucket: "dsbbnewzealand.firebasestorage.app",
-            messagingSenderId: "47157171815",
-            appId: "1:47157171815:web:67fb3402b0e5f2ebc0a6c2",
-            measurementId: "G-9DW1P50S90"
-        };
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+    <script>
+        // 1. Firebase 구성 객체
+        const firebaseConfig = {
+            apiKey: "AIzaSyAew61mBPKk-dVVGe3R_Qbvvtf-S9xD8HY",
+            authDomain: "dsbbnewzealand.firebaseapp.com",
+            projectId: "dsbbnewzealand",
+            storageBucket: "dsbbnewzealand.firebasestorage.app",
+            messagingSenderId: "47157171815",
+            appId: "1:47157171815:web:67fb3402b0e5f2ebc0a6c2",
+            measurementId: "G-9DW1P50S90"
+        };
 
-        // 2. Firebase 초기화
-        firebase.initializeApp(firebaseConfig);
-        const db = firebase.firestore();
+        // 2. Firebase 초기화
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
 
-        // 3. 접속 정보 기록 함수
-        async function logVisitor() {
-            const userAgent = navigator.userAgent; // 기기명 (User Agent)
-            let ip = 'N/A';
-            let country = 'N/A';
-            let isp = 'N/A';
-            
-            try {
-                // IP 주소 가져오기 (ipify 사용)
-                const ipResponse = await fetch('https://api.ipify.org?format=json');
-                const ipData = await ipResponse.json();
-                ip = ipData.ip;
-                
-                // IP를 기반으로 지리 정보 (국가/ISP) 가져오기 (ip-api 사용)
-                const geoResponse = await fetch(`https://ip-api.com/json/${ip}?fields=country,isp`);
+        // 3. 접속 정보 기록 함수
+        async function logVisitor() {
+            const userAgent = navigator.userAgent; // 기기명 (User Agent)
+            let ip = 'N/A';
+            let country = 'Unknown'; // 'N/A' 대신 'Unknown'으로 초기화
+            let isp = 'Unknown';
+
+            try {
+                // 1단계: IP 주소 가져오기 (ipify 사용, HTTPS)
+                const ipResponse = await fetch('https://api.ipify.org?format=json');
+                const ipData = await ipResponse.json();
+                ip = ipData.ip;
+                
+                // 2단계: IP를 기반으로 지리 정보 (국가/ISP) 가져오기 (ip-api 사용, HTTPS 유지)
+                // fetch가 성공하더라도 API 내부적으로 오류(rate limit 등)가 있을 수 있어 응답을 확인합니다.
+                const geoResponse = await fetch(`https://ip-api.com/json/${ip}?fields=status,country,isp`);
                 const geoData = await geoResponse.json();
-                country = geoData.country || 'Unknown';
-                isp = geoData.isp || 'Unknown';
+                
+                // IP-API의 응답 상태(status)가 'success'일 때만 데이터를 사용합니다.
+                if (geoData.status === 'success') {
+                    country = geoData.country || 'Unknown';
+                    isp = geoData.isp || 'Unknown';
+                } else {
+                    console.warn("Geo-location lookup failed (ip-api returned status: " + geoData.status + ")");
+                }
 
-            } catch (error) {
-                // API 호출 실패 시 에러 로깅 (사용자에게는 보이지 않음)
-                console.error("IP or Geo-location fetch failed:", error);
-            }
+            } catch (error) {
+                // 네트워크 문제나 파싱 오류 발생 시
+                console.error("IP or Geo-location fetch failed:", error);
+            }
 
-            // 4. Firestore에 데이터 추가
-            const timestamp = firebase.firestore.FieldValue.serverTimestamp(); // 서버 시간 사용
-            const logEntry = {
-                timestamp: timestamp, // 년/월/일/시간/분/초
-                device_info: userAgent, // 기기명 (User Agent)
-                ip_address: ip, // IP 주소
-                location_country: country, // 접속 국가
-                isp_info: isp // ISP
-            };
+            // 4. Firestore에 데이터 추가
+            const timestamp = firebase.firestore.FieldValue.serverTimestamp(); // 서버 시간 사용
+            const logEntry = {
+                timestamp: timestamp, // 년/월/일/시간/분/초
+                device_info: userAgent, // 기기명 (User Agent)
+                ip_address: ip, // IP 주소
+                location_country: country, // 접속 국가
+                isp_info: isp // ISP
+            };
 
-            // 'access_logs' 컬렉션에 로그 기록
-            db.collection("access_logs").add(logEntry)
-                .then(() => {
-                    // console.log("Visitor log successfully written!");
-                })
-                .catch((error) => {
-                    console.error("Error writing document: ", error);
-                });
-        }
+            // 'access_logs' 컬렉션에 로그 기록
+            db.collection("access_logs").add(logEntry)
+                .then(() => {
+                    // console.log("Visitor log successfully written!");
+                })
+                .catch((error) => {
+                    console.error("Error writing document: ", error);
+                });
+        }
 
-        // 페이지 로드 시 로그 함수 실행
-        logVisitor();
-    </script>
+        // 페이지 로드 시 로그 함수 실행
+        logVisitor();
+    </script>
 </body>
 </html>
