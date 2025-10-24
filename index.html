@@ -6,6 +6,7 @@
     <title>다산별빛초 뉴질랜드 체험 부스 2025: 파블로바 & 하카 프로젝트</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;500;700&display=swap" rel="stylesheet">
     <style>
+        /* (CSS 스타일 코드는 이전과 동일합니다. 생략합니다.) */
         /* 기본 스타일 및 초기화 (DJI 스타일: 미니멀 & 클린) */
         body {
             font-family: 'Noto Sans KR', sans-serif;
@@ -189,18 +190,16 @@
             font-size: 0.9em;
             color: #999999;
             background-color: #000000;
-            /* 푸터 내부 컨텐츠를 중앙 정렬이 아닌 왼쪽 정렬로 변경하여 버튼을 깔끔하게 배치 */
             text-align: left; 
-            padding-left: 50px; /* 섹션과 동일하게 왼쪽 패딩 적용 */
-            display: flex; /* 버튼 배치를 위해 flex 사용 */
-            justify-content: space-between; /* 양쪽 끝으로 밀어내기 */
-            align-items: center; /* 수직 중앙 정렬 */
+            padding-left: 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
         /* 푸터 텍스트 컨테이너 */
         .footer-text {
             line-height: 1.8;
         }
-
     </style>
 </head>
 <body>
@@ -280,5 +279,70 @@
         </a>
     </footer>
 
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+    <script>
+        // 1. Firebase 구성 객체
+        const firebaseConfig = {
+            apiKey: "AIzaSyAew61mBPKk-dVVGe3R_Qbvvtf-S9xD8HY",
+            authDomain: "dsbbnewzealand.firebaseapp.com",
+            projectId: "dsbbnewzealand",
+            storageBucket: "dsbbnewzealand.firebasestorage.app",
+            messagingSenderId: "47157171815",
+            appId: "1:47157171815:web:67fb3402b0e5f2ebc0a6c2",
+            measurementId: "G-9DW1P50S90"
+        };
+
+        // 2. Firebase 초기화
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+
+        // 3. 접속 정보 기록 함수
+        async function logVisitor() {
+            const userAgent = navigator.userAgent; // 기기명 (User Agent)
+            let ip = 'N/A';
+            let country = 'N/A';
+            let isp = 'N/A';
+            
+            try {
+                // IP 주소 가져오기 (ipify 사용)
+                const ipResponse = await fetch('https://api.ipify.org?format=json');
+                const ipData = await ipResponse.json();
+                ip = ipData.ip;
+                
+                // IP를 기반으로 지리 정보 (국가/ISP) 가져오기 (ip-api 사용)
+                const geoResponse = await fetch(`http://ip-api.com/json/${ip}?fields=country,isp`);
+                const geoData = await geoResponse.json();
+                country = geoData.country || 'Unknown';
+                isp = geoData.isp || 'Unknown';
+
+            } catch (error) {
+                // API 호출 실패 시 에러 로깅 (사용자에게는 보이지 않음)
+                console.error("IP or Geo-location fetch failed:", error);
+            }
+
+            // 4. Firestore에 데이터 추가
+            const timestamp = firebase.firestore.FieldValue.serverTimestamp(); // 서버 시간 사용
+            const logEntry = {
+                timestamp: timestamp, // 년/월/일/시간/분/초
+                device_info: userAgent, // 기기명 (User Agent)
+                ip_address: ip, // IP 주소
+                location_country: country, // 접속 국가
+                isp_info: isp // ISP
+            };
+
+            // 'access_logs' 컬렉션에 로그 기록
+            db.collection("access_logs").add(logEntry)
+                .then(() => {
+                    // console.log("Visitor log successfully written!");
+                })
+                .catch((error) => {
+                    console.error("Error writing document: ", error);
+                });
+        }
+
+        // 페이지 로드 시 로그 함수 실행
+        logVisitor();
+    </script>
 </body>
 </html>
